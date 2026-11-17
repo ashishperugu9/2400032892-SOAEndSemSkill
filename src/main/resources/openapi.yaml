@@ -1,0 +1,40 @@
+openapi: 3.0.0
+
+info:
+  title: Addition Microservice API
+  version: 1.0.0
+  description: GET endpoint contract
+
+servers:
+  - url: http://localhost:8080
+
+paths:
+  /ms1/add:
+    get:
+      summary: Add two numbers
+      parameters:
+        - name: a
+          in: query
+          required: true
+          schema:
+            type: integer
+            example: 5
+
+        - name: b
+          in: query
+          required: true
+          schema:
+            type: integer
+            example: 10
+
+      responses:
+        '200':
+          description: Addition successful
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  result:
+                    type: integer
+                    example: 15
